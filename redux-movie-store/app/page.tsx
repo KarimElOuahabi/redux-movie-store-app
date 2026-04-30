@@ -2,8 +2,7 @@
 
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
-
-type Movie = { name: string; inBasket: boolean; liked: boolean };
+import { Movie } from "../lib/store";
 
 export default function Home() {
   const dispatch = useDispatch();
@@ -29,7 +28,6 @@ export default function Home() {
 
   return (
     <>
-      {console.log("movieName : ", movieName)}
       <div>
         <div>
           <h1>My Movies List</h1>
@@ -48,9 +46,11 @@ export default function Home() {
           <div key={index}>
             <li>{movie.name}</li>
             <button onClick={() => handleAddToBasket(movie)}>
-              Add to Basket
+              {movie.inBasket ? "Remove from Basket" : "Add to Basket"}
             </button>
-            <button onClick={() => handleLikeMovie(movie)}>Like</button>
+            <button onClick={() => handleLikeMovie(movie)}>
+              {movie.liked ? "Dislike" : "Like"}
+            </button>
           </div>
         ))}
       </ul>
