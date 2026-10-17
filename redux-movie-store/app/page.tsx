@@ -29,7 +29,6 @@ export default function Home() {
 
   return (
     <>
-      {console.log("movieName : ", movieName)}
       <div>
         <div>
           <h1>My Movies List</h1>
